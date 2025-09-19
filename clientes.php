@@ -1,3 +1,4 @@
+include 'funciones/clientes.php';
 PHP 
 <!DOCTYPE html> 
 <html lang="es"> 
@@ -130,6 +131,13 @@ No se encontraron registros en la tabla
 } 
 // --- 6. Cerrar la conexión a la base de datos --- 
 $conexion->close(); 
+$clientes = obtenerClientes();
+echo "<table>";
+echo "<tr><th>ID</th><th>Nombre</th><th>Email</th></tr>";
+foreach ($clientes as $cliente) {
+    echo "<tr><td>{$cliente['id']}</td><td>{$cliente['nombre']}</td><td>{$cliente['email']}</td></tr>";
+}
+echo "</table>";
 ?> 
 </div> 
 </body> 
